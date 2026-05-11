@@ -25,6 +25,7 @@ button {
 
 .page-shell {
   display: flex;
+  flex-direction: column;
   min-height: 100vh;
   align-items: center;
   justify-content: center;
@@ -43,13 +44,15 @@ button {
 .quiz-header {
   display: flex;
   justify-content: space-between;
-  align-items: flex-start;
+  align-items: center;
   gap: 1rem;
   margin-bottom: 1.5rem;
 }
 
-.quiz-header > div {
-  min-width: 0;
+.question-title {
+  margin: 0 0 1.5rem;
+  font-size: clamp(2rem, 2.5vw, 2.75rem);
+  line-height: 1.05;
 }
 
 .progress {
@@ -62,6 +65,14 @@ h1 {
   margin: 0;
   font-size: clamp(2rem, 2.5vw, 2.75rem);
   line-height: 1.05;
+}
+
+.main-title {
+  margin: 0 0 2rem;
+  font-size: clamp(2.5rem, 3vw, 3.5rem);
+  color: #1f2937;
+  font-weight: 900;
+  text-align: center;
 }
 
 .question-grid {
@@ -191,8 +202,21 @@ h1 {
 
 .quiz-footer {
   display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.footer-buttons {
+  display: flex;
   justify-content: flex-end;
   gap: 0.75rem;
+}
+
+.timer {
+  font-size: 1.2rem;
+  font-weight: 700;
+  color: #4338ca;
 }
 
 .secondary-button {
@@ -203,6 +227,7 @@ h1 {
   background: white;
   cursor: pointer;
   font-weight: 700;
+  white-space: nowrap;
   transition: background 0.2s ease, transform 0.2s ease, border-color 0.2s ease;
 }
 
@@ -319,10 +344,14 @@ h1 {
   background: linear-gradient(90deg, #4f46e5, #22c55e);
 }
 
-.score-label {
-  margin: 0.75rem 0 0;
-  color: #374151;
-  font-weight: 700;
+.summary-item a {
+  color: #4338ca;
+  text-decoration: underline;
+  font-weight: 600;
+}
+
+.summary-item a:hover {
+  color: #312e81;
 }
 
 @media (max-width: 820px) {

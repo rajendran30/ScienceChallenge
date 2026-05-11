@@ -1,7 +1,7 @@
 # Biology Quiz Application Requirements
 
 ## Overview
-Create a Next.js web application that quizzes users with 10 biology questions. The application must load all question data from a JSON file and should not use a database.
+Create a Next.js web application titled "Biology Science Challenge" that quizzes users with 10 biology questions. The application must load all question data from a JSON file and should not use a database. The title should be prominently displayed above the quiz box on every page.
 
 ## Core Functionality
 - Display a quiz with 10 biology questions.
@@ -19,11 +19,19 @@ Create a Next.js web application that quizzes users with 10 biology questions. T
 - Once an answer is dropped, the student cannot change it for that question.
 - The application should allow navigation to the next and previous questions even when no answer has been dropped.
 
+## Timing and Quiz Control
+- Include a "Start Quiz" button in the top left corner, aligned with the "End Quiz" button in the top right.
+- The "Start Quiz" button text should be displayed in one line.
+- Display the current question count (e.g., "Question 1 of 10") centered horizontally between the "Start Quiz" and "End Quiz" buttons.
+- Upon clicking "Start Quiz", begin a 10-minute countdown timer (1 minute per question), displayed at the bottom right below the "Next" button.
+- If the timer reaches zero before completing all questions, the quiz should end automatically and show the results.
+
 ## Scoring and Feedback
 - Do not show answer results or explanations immediately after each question.
 - Show the results only at the end of the quiz.
 - At the end of the quiz, display the total score and a summary of each question.
 - For incorrect answers, show the correct answer and a detailed explanation in the final summary.
+- Under each question's feedback in the results page, include hyperlinks to relevant online resources (e.g., Wikipedia pages) for further reading on the topic.
 
 ## User Interface
 - Use a clean, modern layout with the quiz question displayed clearly.
@@ -35,6 +43,6 @@ Create a Next.js web application that quizzes users with 10 biology questions. T
 
 ## Implementation Notes
 - Built using Next.js and React.
-- Use client-side state to manage current question, answered state, attempts, and quiz progress.
+- Use client-side state to manage current question, answered state, attempts, quiz progress, and timer.
 - Load quiz data from a static JSON file rather than a database.
 - Keep visuals consistent and ensure the application remains usable on desktop screens.

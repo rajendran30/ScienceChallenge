@@ -1,6 +1,6 @@
 'use client';
 
-import { useMemo, useState } from 'react';
+import { useMemo, useState, useEffect } from 'react';
 import questions from '../data/questions.json';
 
 export default function HomePage() {
@@ -13,6 +13,24 @@ export default function HomePage() {
     }))
   );
   const [finished, setFinished] = useState(false);
+  const [timeLeft, setTimeLeft] = useState(600); // 10 minutes in seconds
+  const [quizStarted, setQuizStarted] = useState(false);
+
+  useEffect(() => {
+    if (!quizStarted || finished) return;
+
+    const interval = setInterval(() => {
+      setTimeLeft((prev) => {
+        if (prev <= 1) {
+          setFinished(true);
+          return 0;
+        }
+        return prev - 1;
+      });
+    }, 1000);
+
+    return () => clearInterval(interval);
+  }, [quizStarted, finished]);
 
   const currentQuestion = questions[currentIndex];
   const currentProgress = questionProgress[currentIndex];
@@ -77,6 +95,10 @@ export default function HomePage() {
     setFinished(true);
   }
 
+  function handleStartQuiz() {
+    setQuizStarted(true);
+  }
+
   function handleRestart() {
     setCurrentIndex(0);
     setQuestionProgress(
@@ -87,11 +109,14 @@ export default function HomePage() {
       }))
     );
     setFinished(false);
+    setTimeLeft(600);
+    setQuizStarted(false);
   }
 
   if (finished) {
     return (
       <main className="page-shell">
+        <h2 className="main-title">Biology Science Challenge</h2>
         <section className="summary-card">
           <h1>Quiz Completed</h1>
           <div className={`result-summary ${failed ? 'failed' : 'passed'}`}>
@@ -131,6 +156,11 @@ export default function HomePage() {
                       <p>{explanation}</p>
                     </div>
                   ) : null}
+                  <p>
+                    <a href={question.resourceUrl} target="_blank" rel="noopener noreferrer">
+                      Learn more about this topic
+                    </a>
+                  </p>
                 </div>
               );
             })}
@@ -145,18 +175,21 @@ export default function HomePage() {
 
   return (
     <main className="page-shell">
+      <h2 className="main-title">Biology Science Challenge</h2>
       <section className="quiz-card">
         <header className="quiz-header">
-          <div>
-            <p className="progress">
-              Question {currentIndex + 1} of {questions.length}
-            </p>
-            <h1>{currentQuestion.question}</h1>
-          </div>
+          <button className="secondary-button start-quiz-button" onClick={handleStartQuiz} disabled={quizStarted}>
+            Start Quiz
+          </button>
+          <p className="progress">
+            Question {currentIndex + 1} of {questions.length}
+          </p>
           <button className="secondary-button end-quiz-button" onClick={handleEndQuiz}>
             End Quiz
           </button>
         </header>
+
+        <h1 className="question-title">{currentQuestion.question}</h1>
 
         <div className="question-grid">
           <div className="options-column">
@@ -197,12 +230,19 @@ export default function HomePage() {
         </div>
 
         <footer className="quiz-footer">
-          <button className="secondary-button" onClick={handlePrevious} disabled={currentIndex === 0}>
-            Previous
-          </button>
-          <button className="primary-button" onClick={handleNext}>
-            {currentIndex + 1 === questions.length ? 'Finish Quiz' : 'Next Question'}
-          </button>
+          <div className="footer-buttons">
+            <button className="secondary-button" onClick={handlePrevious} disabled={currentIndex === 0}>
+              Previous
+            </button>
+            <button className="primary-button" onClick={handleNext}>
+              {currentIndex + 1 === questions.length ? 'Finish Quiz' : 'Next Question'}
+            </button>
+          </div>
+          {quizStarted && (
+            <div className="timer">
+              Time left: {Math.floor(timeLeft / 60)}:{(timeLeft % 60).toString().padStart(2, '0')}
+            </div>
+          )}
         </footer>
       </section>
     </main>

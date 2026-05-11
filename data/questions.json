@@ -4,6 +4,7 @@
     "question": "Which organelle is known as the powerhouse of the cell?",
     "image": "/images/mitochondrion.svg",
     "imageCaption": "Mitochondrion illustration",
+    "resourceUrl": "https://en.wikipedia.org/wiki/Mitochondrion",
     "choices": [
       {
         "id": "a",
@@ -36,6 +37,7 @@
     "question": "What is the basic unit of life?",
     "image": "/images/cell.svg",
     "imageCaption": "Basic cell illustration",
+    "resourceUrl": "https://en.wikipedia.org/wiki/Cell_(biology)",
     "choices": [
       {
         "id": "a",
@@ -68,6 +70,7 @@
     "question": "Which macromolecule carries genetic information?",
     "image": "/images/nucleic-acids.svg",
     "imageCaption": "DNA / RNA illustration",
+    "resourceUrl": "https://en.wikipedia.org/wiki/Nucleic_acid",
     "choices": [
       {
         "id": "a",
@@ -100,6 +103,7 @@
     "question": "Which process do plants use to convert sunlight into chemical energy?",
     "image": "/images/photosynthesis.svg",
     "imageCaption": "Photosynthesis illustration",
+    "resourceUrl": "https://en.wikipedia.org/wiki/Photosynthesis",
     "choices": [
       {
         "id": "a",
@@ -132,6 +136,7 @@
     "question": "What structure protects the DNA inside the nucleus?",
     "image": "/images/nucleus.svg",
     "imageCaption": "Cell nucleus illustration",
+    "resourceUrl": "https://en.wikipedia.org/wiki/Cell_nucleus",
     "choices": [
       {
         "id": "a",
@@ -164,6 +169,7 @@
     "question": "Which blood vessels carry oxygen-rich blood away from the heart?",
     "image": "/images/arteries.svg",
     "imageCaption": "Artery illustration",
+    "resourceUrl": "https://en.wikipedia.org/wiki/Artery",
     "choices": [
       {
         "id": "a",
@@ -196,6 +202,7 @@
     "question": "What is the name of the molecule that carries oxygen in red blood cells?",
     "image": "/images/hemoglobin.svg",
     "imageCaption": "Hemoglobin illustration",
+    "resourceUrl": "https://en.wikipedia.org/wiki/Hemoglobin",
     "choices": [
       {
         "id": "a",
@@ -228,6 +235,7 @@
     "question": "What type of cell division produces two identical daughter cells?",
     "image": "/images/mitosis.svg",
     "imageCaption": "Mitosis illustration",
+    "resourceUrl": "https://en.wikipedia.org/wiki/Mitosis",
     "choices": [
       {
         "id": "a",
@@ -260,6 +268,7 @@
     "question": "Which hormone controls the body's stress response by increasing heart rate and blood sugar?",
     "image": "/images/adrenaline.svg",
     "imageCaption": "Adrenal hormone illustration",
+    "resourceUrl": "https://en.wikipedia.org/wiki/Adrenaline",
     "choices": [
       {
         "id": "a",
@@ -292,6 +301,7 @@
     "question": "Which structure in the nervous system transmits electrical signals between the brain and the rest of the body?",
     "image": "/images/spinal-cord.svg",
     "imageCaption": "Spinal cord illustration",
+    "resourceUrl": "https://en.wikipedia.org/wiki/Spinal_cord",
     "choices": [
       {
         "id": "a",
